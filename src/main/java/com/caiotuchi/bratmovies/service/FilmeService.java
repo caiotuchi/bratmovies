@@ -16,4 +16,9 @@ public class FilmeService {
     public List<Filme> listarFilmes() {
         return filmeRepository.findAll();
     }
+
+    public Filme salvarFilme(Filme filme) {
+        return filmeRepository.save(filme);
+    }
+
 }
