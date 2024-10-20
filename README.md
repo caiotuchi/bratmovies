@@ -21,5 +21,32 @@ mvn clean install
 mvn spring-boot:run
 A API estará disponível em: http://localhost:8080.
 
-Endpoints
-GET /filmes: Retorna todos os filmes cadastrados.
+## Workflow
+O Workflow escolhido foi o Github Flow, que por ser mais simples permitiria uma entrega mais rápida dessa API de pequeno escopo.
+
+## Endpoints
+
+1. Listar Filmes (GET)
+Endpoint: GET /filmes
+Descrição: Retorna todos os filmes cadastrados.
+Exemplo de requisição:
+http://localhost:8080/filmes
+
+3. Adicionar Filme (POST)
+Endpoint: POST /filmes
+Exemplo de Requisição pelo Postman:
+Abra o Postman.
+Selecione o método POST.
+Insira a URL: http://localhost:8080/filmes.
+Vá para a aba Headers e adicione:
+Key: Content-Type
+Value: application/json
+Na aba Body, escolha a opção raw e selecione JSON no menu suspenso.
+
+Insira o JSON da seguinte forma:
+{
+    "titulo": "O Senhor dos Anéis",
+    "diretor": "Peter Jackson",
+    "ano": 2001
+}
+Clique em Send para enviar a requisição.
