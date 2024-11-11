@@ -1,0 +1,26 @@
+name: pull-requests-workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório e trocar para a branch específica
+        uses: actions/checkout@v4
+
+      - name: Instalar JDK
+        uses: actions/setup-java@v2
+        with:
+            distribution: microsoft
+            java-version: '17'
+
+      - name: Instalar dependências
+        run: mvn clean install
+
+      - name: Compilar o projeto
+        run: mvn compile
+
+      - name: Executar testes
+        run: mvn test
