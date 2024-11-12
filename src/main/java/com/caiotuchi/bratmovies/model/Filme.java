@@ -14,6 +14,12 @@ public class Filme {
     private String diretor;
     private int ano;
 
+    public Filme(String titulo, String diretor, int ano) {
+        this.titulo = titulo;
+        this.diretor = diretor;
+        this.ano = ano;
+    }
+
     public String getTitulo() {
         return titulo;
     }
