@@ -50,3 +50,10 @@ Insira o JSON da seguinte forma:
     "ano": 2001
 }
 Clique em Send para enviar a requisição.
+
+3. Remover Filme (DELETE)
+Endpoint: DELETE /filmes/{id}
+Descrição: Remove um filme pelo ID.
+
+Caso o filme não exista, a API retornará 404 (Not Found).
+Caso o filme exista, ele será removido e a API retornará 204 (No Content).
