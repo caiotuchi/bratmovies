@@ -21,4 +21,12 @@ public class FilmeService {
         return filmeRepository.save(filme);
     }
 
+    public boolean removerFilmePorId(String id) {
+        if (filmeRepository.existsById(id)) {
+            filmeRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
 }
