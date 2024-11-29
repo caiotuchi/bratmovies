@@ -1,15 +1,13 @@
 package com.caiotuchi.bratmovies.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "filmes")
 public class Filme {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
     private String titulo;
     private String diretor;
     private int ano;
@@ -18,6 +16,11 @@ public class Filme {
         this.titulo = titulo;
         this.diretor = diretor;
         this.ano = ano;
+    }
+
+
+    public String getId() {
+        return id;
     }
 
     public String getTitulo() {
