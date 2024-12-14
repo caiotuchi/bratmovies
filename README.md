@@ -57,3 +57,33 @@ Descrição: Remove um filme pelo ID.
 
 Caso o filme não exista, a API retornará 404 (Not Found).
 Caso o filme exista, ele será removido e a API retornará 204 (No Content).
+
+4. Teste com VMs usando Vagrant
+A aplicação também pode ser testada em um ambiente configurado com Vagrant, usando duas máquinas virtuais (VMs).
+
+Passos para configuração e teste
+Certifique-se de que o Vagrant e o VirtualBox estão instalados.
+
+No seu terminal: 
+
+1- Inicie as máquinas virtuais:
+vagrant up
+
+2- Acesse a VM1:
+vagrant ssh vm1
+
+3- Teste os endpoints usando o comando curl na VM1. A aplicação estará rodando na VM2 no endereço http://192.168.56.11:8080 :
+
+Listar filmes - curl http://192.168.56.11:8080/filmes
+
+Adicionar filme - curl -X POST http://192.168.56.11:8080/filmes \
+-H "Content-Type: application/json" \
+-d '{"titulo": "O Senhor dos Anéis", "diretor": "Peter Jackson", "ano": 2001}'
+
+Remover filme - curl -X DELETE http://192.168.56.11:8080/filmes/{id} (substitua por um id)
+
+4- Desligar as máquinas:
+vagrant halt
+
+5- Destruir as máquinas:
+vagrant destroy
